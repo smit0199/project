@@ -1,0 +1,80 @@
+  .login-container{
+    background-color: #3B4566;
+    margin: 0;
+    padding: 0;
+    /* min-height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+  }
+  .login-wrapper {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    /* background-color: #fff; */
+    padding: 30px;
+    /* border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+    transition: min-height 0.3s ease;
+  }
+  
+  .login-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding-right: 10px;
+  }
+
+  .login-tabs button:first-child {
+    margin-right: 5px;
+  }
+  
+  .login-tabs button {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    /* color: #a0db4e; */
+    /* border: 1px solid #a0db4e; */
+    cursor: pointer;
+    transition: background 0.2s, 
+    color 0.2s;
+  }
+  
+  .login-tabs button.active {
+    background-color: #3B4566;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    min-height: 385px; /* tweak this value */
+  }
+  
+  .login-form h2 {
+    margin-bottom: 15px;
+    color: #fff;
+  }
+  
+  .login-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .login-form button {
+    padding: 10px;
+    background-color: #a0db4e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

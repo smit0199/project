@@ -1,28 +1,38 @@
-import React from 'react';
-import Login from '@react-login-page/page8';
+import React, { useState } from 'react';
+import './login.css';
 
-const LoginPage = () => {
-  const validUser = {
-    email: 'abc@gmail.com',
-    password: '1234'
-  };
-
-  const handleLogin = ({ email, password }) => {
-    if (email === validUser.email && password === validUser.password) {
-      alert('Login successful!');
-    } else {
-      alert('Invalid email or password');
-    }
-  };
+function Login() {
+  const [isLogin, setIsLogin] = useState(true);
 
   return (
-    <Login
-      title="Welcome Back"
-      subtitle="Enter your credentials"
-      onLogin={handleLogin}
-      style={{ height: 690 }}
-    />
-  );
-};
+    <div className="login-container">
+      <div className="login-wrapper">
+        <div className="login-tabs">
+          <button className={isLogin ? 'active' : ''} onClick={() => setIsLogin(true)}>Login</button>
+          <button className={!isLogin ? 'active' : ''} onClick={() => setIsLogin(false)}>Signup</button>
+        </div>
 
-export default LoginPage;
+        {isLogin ? (
+          <form className="login-form">
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" />
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button type="submit">Submit</button>
+          </form>
+        ) : (
+          <form className="login-form">
+            <h2>Signup</h2>
+            <input type="text" placeholder="Username" />
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <input type="password" placeholder="Confirm Password" />
+            <button type="submit">Signup</button>
+          </form>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default Login;

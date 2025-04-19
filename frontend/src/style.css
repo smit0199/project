@@ -2,8 +2,9 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
+  /* background-color: #f4f4f9; */
   color: #333;
+  background-color: #222222;
 }
   
   /* Navbar */
@@ -16,6 +17,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   color: white;
+  height: 55px;
 }
 nav:hover{
   background-color: #b5aeb1;

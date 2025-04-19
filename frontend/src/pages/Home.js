@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./footer";
 import "./home.css";
+import { getEvents } from '../api';
 
 function Home() {
     const [events, setEvents] = useState([]);
@@ -20,10 +21,15 @@ function Home() {
     };
 
     useEffect(() => {
-        fetch("/data.json")
-            .then((response) => response.json())
-            .then((data) => setEvents(data))
-            .catch((error) => console.error("Error loading events:", error));
+        const fetchEvents = async () => {
+            try {
+                const data = await getEvents();
+                setEvents(data);
+            } catch (error) {
+                console.error("Error loading events:", error);
+            }
+        };
+        fetchEvents();
     }, []);
 
     return (
