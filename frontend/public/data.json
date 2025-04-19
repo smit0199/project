@@ -1,0 +1,37 @@
+[
+    {
+      "title": "Tech Conference 2025",
+      "description": "A conference for tech enthusiasts.",
+      "date": "2025-06-15T10:00",
+      "location": "Mumbai",
+      "image": "./image/hero.jpg"
+    },
+    {
+      "title": "Music Fest",
+      "description": "Join the biggest music festival in town!",
+      "date": "2025-07-20T18:00",
+      "location": "Ahmedabad",
+      "image": "https://www.holidify.com/images/cmsuploads/compressed/nh73_20170828184854.jpg"
+    },
+    {
+      "title": "Surfentech expo",
+      "description": "Expo Paint & Coatings - 2025",
+      "date": "2025-04-24T09:00",
+      "location": "Ahmedabad",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSi-pSOTy18Qp1wVFuHv4cPADu0P_LxpT9Mw&s"
+    },
+    {
+      "title": "Music Fest",
+      "description": "Join the biggest music festival in town!",
+      "date": "2025-07-20T18:00",
+      "location": "Mumbai",
+      "image": "https://www.royalstagfan.com/wp-content/themes/royalstagnew/rsassets/images/blog/images/Upcoming_Music_Festivals_in_India_2024_Banner-min.jpg"
+    },    
+    {
+      "title": "Music Fest",
+      "description": "Join the biggest music festival in town!",
+      "date": "2025-07-20T18:00",
+      "location": "Rajkot",
+      "image": "https://www.visitbritain.com/sites/cms/files/styles/media_highlight_carousel_sm/public/lookatmedam/4783bc70-b615-4af2-b9aa-32b1e06cfdd0l.jpg?h=7bbe30af&itok=Rg-0BfUO"
+    }
+]  

@@ -18,7 +18,7 @@ function App() {
             <Link className="Home" to="/">Home</Link>
             <Link className="Event" to="/event">Events</Link>
             <Link className="Createvent" to="/create">Create Event</Link>
-            <Link className="Dashboard" to="/dashboard">Dashboard</Link>
+            {/* <Link className="Dashboard" to="/dashboard">Dashboard</Link> */}
             <Link className="Login" to="/login">Login</Link>
           </div>
         </nav>
@@ -27,7 +27,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/event" element={<Event />} />
             <Route path="/create" element={<CreateEvent />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             <Route path="/login" element={<Login />} />
           </Routes>
         {/* </div> */}

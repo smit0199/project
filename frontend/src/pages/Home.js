@@ -55,7 +55,6 @@ function Home() {
                     <button className="card-nav-button card-nav-right" onClick={() => scroll("right")}>&gt;</button>
                 </div>
             </section>
-            <Footer/>
         </div>
     );
 }
