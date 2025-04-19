@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Footer from "./pages/footer";
 import "./style.css";
+import SingleEvent from "./pages/SingleEvent";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/create" element={<CreateEvent />} />
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             <Route path="/login" element={<Login />} />
+            <Route path="/event/:id" element={<SingleEvent />} />
           </Routes>
         {/* </div> */}
         <Footer/>

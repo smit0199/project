@@ -46,15 +46,15 @@ function Event() {
                         <div className="event-card" key={event.id}>
                             <img src={event.image || "/images/default-event.jpg"} alt={event.title} />
                             <h3>{event.title}</h3>
-                            <p>{event.description}</p>
+                            {/* <p>{event.description}</p> */}
                             <p><strong>Date:</strong> {new Date(event.date).toLocaleString()}</p>
                             <p><strong>Location:</strong> {event.location}</p>
                             {/* {event.organizer && <p><strong>Organizer:</strong> {event.organizer}</p>} */}
-                            <Link to={`/event/${event.id}`} className="more-info-btn">More Info</Link>
+                            <Link to={`/event/${event._id}`} className="more-info-btn">More Info</Link>
                         </div>
                     ))
                 ) : (
-                    <p>Loading events...</p>
+                    <div className="loader"></div>
                 )}
             </div>
         </div>

@@ -8,15 +8,9 @@
     text-align: center;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
     margin-bottom: 30px;
     flex-wrap: wrap;
     gap: 15px;
-    justify-content: flex-start;
-}
-
-h1{
-    margin-right: auto;
 }
 
 .event-grid {
@@ -59,7 +53,7 @@ h1{
 
 /* search bar  */
 .search-bar {
-    width: 300px;
+    width: 500px;
     padding: 10px;
     /* margin-right: 10px; */
     border: 1px solid #ccc;
@@ -80,11 +74,7 @@ h1{
     height: 2em;
     background-color: #0056b3;
     position: absolute;
-    /* top: 50%; */
-    /* left: 10px; */
-    /* transform: translateY(-50%);
-    transform: translateX(178px); */
-    transform: translate(178px, -38px);
+    transform: translate(350px, -38px);
     font-size: 18px;
 }
 
@@ -93,3 +83,39 @@ h1{
     width: 300px;
     margin: 0 auto;
 }
+
+/* .loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    clip-path: inset(0 3ch 0 0);
+    animation: l4 1s steps(4) infinite;
+  }
+  .loader:before {
+    content:"Loading..."
+  }
+  @keyframes l4 {to{clip-path: inset(0 -1ch 0 0)}} */
+
+  /* HTML: <div class="loader"></div> */
+
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    white-space: pre;
+    font-size: 30px;
+    line-height: 1.2em;
+    height:1.2em;
+    overflow: hidden;
+  }
+  .loader:before {
+    content:"Loading...\AΔoading...\Aƒësading...\Aƒëding...\Aƒësing...\Aƒësʈng...\Aƒësʈṏg...\Aƒësʈṏʁ...\Aƒësʈṏʁí..\AƒësʈṏʁíɅ.\AƒësʈṏʁíɅ";
+    white-space: pre;
+    display: inline-block;
+    animation: l39 1.8s infinite steps(11) alternate;
+  }
+  
+  @keyframes l39 {
+    100%{transform: translateY(-100%)}
+  }

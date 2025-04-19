@@ -55,7 +55,7 @@ function Home() {
                                 </div>
                             ))
                         ) : (
-                            <p>No events found.</p>
+                            <div className="loader"></div>
                         )}
                     </div>
                     <button className="card-nav-button card-nav-right" onClick={() => scroll("right")}>&gt;</button>
