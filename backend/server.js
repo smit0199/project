@@ -1,48 +1,42 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const { MongoClient } = require('mongodb');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
 const port = 5000;
 
-// Middleware
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-// MongoDB connection
-mongoose.connect('mongodb://localhost:27017/Festoria', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+const url = 'mongodb://localhost:27017';
+const client = new MongoClient(url);
+const dbName = 'Festoria';
 
-// Event model
-const eventSchema = new mongoose.Schema({
-  title: String,
-  description: String,
-  date: String,
-  location: String,
-  image: String
+let db;
+client.connect().then(() => {
+  db = client.db(dbName);
+  console.log('MongoDB connected');
+}).catch((err) => {
+  console.error('MongoDB connection failed:', err);
 });
-
-const Event = mongoose.model('Event', eventSchema);
 
 // POST route to create an event
 app.post('/api/events', async (req, res) => {
   try {
-    const newEvent = new Event(req.body);
-    await newEvent.save();
-    res.status(201).json(newEvent);
+    const newEvent = req.body;
+    const result = await db.collection('events').insertOne(newEvent);
+    res.status(201).json(result.ops ? result.ops[0] : newEvent); // ops is legacy, may be undefined
   } catch (err) {
     console.error('Error saving event:', err);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
 
-// GET route to fetch events
+// GET route to fetch all events
 app.get('/api/events', async (req, res) => {
   try {
-    const events = await Event.find();
+    const events = await db.collection('events').find().toArray();
     res.status(200).json(events);
   } catch (err) {
     console.error('Error fetching events:', err);
@@ -50,7 +44,20 @@ app.get('/api/events', async (req, res) => {
   }
 });
 
-// Start server
+// Optional: GET single event by ID
+const { ObjectId } = require('mongodb');
+app.get('/api/events/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const event = await db.collection('events').findOne({ _id: new ObjectId(id) });
+    if (!event) return res.status(404).json({ message: 'Event not found' });
+    res.status(200).json(event);
+  } catch (err) {
+    console.error('Error fetching event by ID:', err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });

@@ -43,7 +43,7 @@ function Event() {
             <div className="event-grid">
                 {events.length > 0 ? (
                     events.map((event) => (
-                        <div className="event-card" key={event.id}>
+                        <div className="event-card" key={event._id}>
                             <img src={event.image || "/images/default-event.jpg"} alt={event.title} />
                             <h3>{event.title}</h3>
                             {/* <p>{event.description}</p> */}
