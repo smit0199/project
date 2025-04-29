@@ -13,11 +13,21 @@ export const createEvent = async (eventData) => {
 };
 
 export const getEvents = async () => {
-    try {
-      const res = await axios.get(`${API_URL}/events`);
-      return res.data;
-    } catch (err) {
-      console.error('Error fetching events:', err);
-      throw err;
-    }
-  };
+  try {
+    const res = await axios.get(`${API_URL}/events`);
+    return res.data;
+  } catch (err) {
+    console.error('Error fetching events:', err);
+    throw err;
+  }
+};
+
+export const signupUser = async (userData) => {
+  const res = await axios.post(`${API_URL}/signup`, userData);
+  return res.data;
+};
+  
+export const loginUser = async (userData) => {
+  const res = await axios.post(`${API_URL}/login`, userData);
+  return res.data;
+};

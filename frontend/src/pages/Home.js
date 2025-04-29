@@ -46,7 +46,7 @@ function Home() {
                     <div className="events-grid" ref={scrollRef}>
                         {events.length > 0 ? (
                             events.map((event, index) => (
-                                <div className="event-card" key={index}>
+                                <div className="event-card" key={event._id}>
                                     <img src={event.image || "/images/default-event.jpg"} alt={event.title} />
                                     <h3>{event.title}</h3>
                                     <p>{event.description}</p>

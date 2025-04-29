@@ -76,6 +76,7 @@
     position: absolute;
     transform: translate(350px, -38px);
     font-size: 18px;
+    border-radius: 5px;
 }
 
 .search-container {
