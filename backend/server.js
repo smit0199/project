@@ -2,6 +2,7 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const twilio = require('twilio');
 
 const app = express();
 const port = 5000;
@@ -89,4 +90,30 @@ app.post('/api/login', async (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
+});
+
+//SMS sender 
+
+const accountSid = 'AC5c18c4e871915c1b1f9d52400fa023ea';       // from Twilio dashboard
+const authToken = '0f2af26e3e50c0821bcc110234e3c6ea';         // from Twilio dashboard
+const clientTwilio = twilio(accountSid, authToken);
+
+app.post('/api/send-sms', async (req, res) => {
+
+  const { phone, eventTitle, eventDate } = req.body;
+  console.log('Received SMS request:', phone, eventTitle, eventDate); // Add logging here
+
+  try {
+    const message = await clientTwilio.messages.create({
+      body: `<br>You're confirmed for participating in ${eventTitle} Event on ${new Date(eventDate).toLocaleString()}`,
+      from: '+1(551)350-2847',  // Your Twilio phone number
+      to: phone                 // User's phone number (with country code)
+    });
+
+    console.log('SMS sent successfully:', message); // Log success message
+    res.status(200).json({ message: 'SMS sent' });
+  } catch (err) {
+    console.error('SMS failed:', err);  // Log detailed error
+    res.status(500).json({ message: 'SMS sending failed', error: err.message });
+  }
 });

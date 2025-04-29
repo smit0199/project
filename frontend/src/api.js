@@ -31,3 +31,18 @@ export const loginUser = async (userData) => {
   const res = await axios.post(`${API_URL}/login`, userData);
   return res.data;
 };
+
+//SMS sender
+export const sendConfirmationSMS = async (phone, eventTitle, eventDate) => {
+  try {
+    const res = await axios.post(`${API_URL}/send-sms`, {
+      phone,
+      eventTitle,
+      eventDate
+    });
+    return res.data;
+  } catch (err) {
+    console.error('Error sending SMS:', err);
+    throw err;
+  }
+};
